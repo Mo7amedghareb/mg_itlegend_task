@@ -1,0 +1,91 @@
+@media screen and (min-width:992px) {
+    .course-details{
+        border: 1px lightgray solid;
+        height: 500px;
+        padding: 20px;
+        margin-left: 50px;
+        margin-top: 20px;
+        width: 60%;
+        margin-bottom: 20px;
+    }
+    #week1-4{
+        margin-bottom: 10px;
+    }
+    .paragraph{
+        color: gray;
+        margin-bottom: 10px;
+    }
+    .title-icon{
+        display: flex;
+        justify-Content: space-between;
+        margin-Bottom: 20px;
+        margin-Top: 20px
+    }
+    .text{
+        margin-left: 10px;
+    }
+    .qanda{
+        display: flex;
+    }
+    .questions{
+        width: 80px;
+        height: 20px;
+        background-Color: rgb(176, 237, 201);
+        color: rgba(0, 128, 0, 0.527);
+    }
+    .answers{
+        width: 80px;
+        height: 20px;
+        background-Color: rgba(255, 0, 0, 0.204);
+        color: rgba(255, 0, 0, 0.647);
+         
+    }
+}
+
+
+
+@media screen and (max-width:600px) {
+    .course-details{
+        border: 1px lightgray solid;
+        height: fit-content;
+        padding: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        width: 80%;
+        margin-bottom: 10px;
+    }
+    #week1-4{
+        margin-bottom: 0px;
+    }
+    .paragraph{
+        color: gray;
+        margin-bottom: 10px;
+    }
+    .title-icon{
+        display: flex;
+        justify-Content: space-between;
+        margin-Bottom: 5px;
+        margin-Top: 5px
+    }
+    .text{
+        margin-left: 10px;
+    }
+    .qanda{
+        display: flex;
+    }
+    .questions{
+        width: 80px;
+        height: 20px;
+        background-Color: rgb(176, 237, 201);
+        color: rgba(0, 128, 0, 0.527);
+        padding-left: 0px; 
+    }
+    .answers{
+        width: 80px;
+        height: 20px;
+        background-Color: rgba(255, 0, 0, 0.204);
+        color: rgba(255, 0, 0, 0.647);
+        padding-left: 0px; 
+    }
+}

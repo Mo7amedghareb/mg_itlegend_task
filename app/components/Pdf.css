@@ -1,0 +1,8 @@
+.pdfbtn{
+
+    padding: 1px;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    background-color: white;
+    cursor: pointer;
+}
