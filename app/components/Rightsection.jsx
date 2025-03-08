@@ -89,8 +89,11 @@ export default function Rightsection() {
                         <PDFModal />
                         <p className="text">Course Overview</p>
                     </div>
+                    <div className="qanda">
                     <div className="questions">0 Questions</div>
                     <div className="answers">10 Answers</div>
+                    </div>
+                    
                 </div>
                 <hr></hr>
                 <div className="title-icon">
