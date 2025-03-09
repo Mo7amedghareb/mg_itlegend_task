@@ -15,14 +15,29 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [percentage, setPercentage] = useState(0);
+  const progressBarRef = useRef(null);
 
+  // مراقبة ظهور progress bar
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setProgress(50);
-      setPercentage(50);
-    }, 500);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setProgress(50);
+          setPercentage(50);
+        }
+      },
+      { threshold: 0.5 } // نصف العنصر يجب أن يكون ظاهرًا لتفعيله
+    );
 
-    return () => clearTimeout(timer);
+    if (progressBarRef.current) {
+      observer.observe(progressBarRef.current);
+    }
+
+    return () => {
+      if (progressBarRef.current) {
+        observer.unobserve(progressBarRef.current);
+      }
+    };
   }, []);
 
   const handleVideoEnd = () => {
@@ -47,8 +62,8 @@ export default function Home() {
         <h4 style={{ marginBottom: "10px" }} className="routes">
           Home <i className="fa-solid fa-angle-right" /> Courses <i className="fa-solid fa-angle-right" /> Course Details
         </h4>
-        <h2 style={{marginLeft:'20px'}}>Starting SEO As Your Home</h2>
-        <h2 style={{marginLeft:'20px'}} id="secondh">Based Business</h2>
+        <h2 style={{ marginLeft: "20px" }}>Starting SEO As Your Home</h2>
+        <h2 style={{ marginLeft: "20px" }} id="secondh">Based Business</h2>
       </div>
 
       <div className="container">
@@ -68,7 +83,7 @@ export default function Home() {
           </div>
           <div className="secondsection">
             <div className="rightsection">
-              <div className="progressbar">
+              <div className="progressbar" ref={progressBarRef}>
                 <h2>Topics of this course</h2>
                 <div className="progress-container" style={{ position: "relative", height: "10px", background: "#ddd", borderRadius: "5px" }}>
                   <div
@@ -81,10 +96,8 @@ export default function Home() {
                       transition: "width 3s ease-in-out"
                     }}
                   />
-
                 </div>
                 <h6 style={{ left: `${progress * videos.length}px` }}>{Math.round(percentage)}%</h6>
-
               </div>
               <Rightsection />
             </div>
