@@ -76,7 +76,7 @@ export default function Exam() {
   const handleSubmit = () => {
     let correctCount = 0;
   
-    // ✅ حساب النتيجة
+
     Object.keys(correctAnswers).forEach((qId) => {
       if (answers[qId] === correctAnswers[qId]) {
         correctCount++;
