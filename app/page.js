@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Icons from "./components/Icons";
 import Coursematerials from "./components/Coursematerials";
 import Testomonials from "./components/Testomonials";
@@ -13,17 +13,22 @@ export default function Home() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [progress, setProgress] = useState(30);
-  const [percentage, setpercentage] = useState(30);
+  const [progress, setProgress] = useState(0);
+  const [percentage, setPercentage] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setProgress(50);
+      setPercentage(50);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleVideoEnd = () => {
-    // Move to the next video
     setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
-
-    // Increase progress based on total videos
-
     setProgress((prevProgress) => Math.min(prevProgress + 100 / videos.length, 100));
-    setpercentage((prevPercentage) => Math.min(prevPercentage + 100 / videos.length, 100));
+    setPercentage((prevPercentage) => Math.min(prevPercentage + 100 / videos.length, 100));
   };
 
   const testomonialsRef = useRef(null);
@@ -39,8 +44,10 @@ export default function Home() {
   return (
     <>
       <div id="title">
-        <h4 style={{marginBottom:'10px'}} className="routes">Home <i className="fa-solid fa-angle-right" /> Courses <i className="fa-solid fa-angle-right" /> Course Details</h4>
-        <h2 >Starting SEO As Your Home</h2>
+        <h4 style={{ marginBottom: "10px" }} className="routes">
+          Home <i className="fa-solid fa-angle-right" /> Courses <i className="fa-solid fa-angle-right" /> Course Details
+        </h4>
+        <h2>Starting SEO As Your Home</h2>
         <h2 id="secondh">Based Business</h2>
       </div>
 
@@ -49,13 +56,7 @@ export default function Home() {
           <div className="firstsection">
             <div className="video">
               <div className="leftdiv">
-                <video
-                  key={currentIndex}
-                  src={videos[currentIndex]}
-                  controls
-                  autoPlay
-                  onEnded={handleVideoEnd}
-                />
+                <video key={currentIndex} src={videos[currentIndex]} controls autoPlay onEnded={handleVideoEnd} />
               </div>
             </div>
             <div className="icons">
@@ -69,28 +70,35 @@ export default function Home() {
             <div className="rightsection">
               <div className="progressbar">
                 <h2>Topics of this course</h2>
-                <div className="progress-container">
-                  <div className="animate-progress" style={{ width: `${progress}%` }} />
+                <div className="progress-container" style={{ position: "relative", height: "10px", background: "#ddd", borderRadius: "5px" }}>
+                  <div
+                    className="animate-progress"
+                    style={{
+                      width: `${progress}%`,
+                      height: "100%",
+                      background: "blue",
+                      borderRadius: "5px",
+                      transition: "width 1s ease-in-out"
+                    }}
+                  />
+
                 </div>
                 <h6 style={{ left: `${progress * videos.length}px` }}>{Math.round(percentage)}%</h6>
+
               </div>
               <Rightsection />
             </div>
           </div>
-
         </div>
-
 
         <div className="thirdsection">
           <div ref={testomonialsRef}>
             <Testomonials />
           </div>
         </div>
-
       </div>
 
       <script src="https://kit.fontawesome.com/01bcf5ff16.js" crossOrigin="anonymous"></script>
     </>
   );
 }
-
