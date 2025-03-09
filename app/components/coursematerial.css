@@ -1,16 +1,16 @@
 @media screen and (min-width:992px) {
-    h1 {
-        margin-left: 20px;
-        margin-top: 10px;
+    h3 {
+        margin-left: 30px;
+        margin-bottom: 10px;
     }
     .Main {
         display: flex;
         justify-content: space-between;
         width: 80%;
         margin-left: 20px;
-        padding: 50px;
-        margin-top: 10px;
-        height: 400px;
+        padding: 10px;
+        margin-top: 0px;
+        height: fit-content;
         box-shadow: 1px 1px 5px lightgray;
         .left{
             width: 40%;
@@ -23,8 +23,8 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        padding-bottom: 15px;
-        padding-top: 50px;
+        padding-bottom: 20px;
+        padding-top: 20px;
         margin-left: 0px;
     }
     .value{
@@ -35,18 +35,56 @@
     }
 }
 
-
-@media (max-width: 600px) {
-    h1 {
-        margin-left: 20px;
-        margin-top: 10px;
+/*mobile screens*/
+@media (max-width: 768px) {
+    h3{
+        margin-left: 30px;
+        margin-top: 0px;
+        margin-bottom: 10px;
     }
     .Main {
-        width: 100%;
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
-        height: auto;
         box-shadow: 1px 1px 5px lightgray;
+        margin-bottom: 50px;
+    }
+    .right{
+        display: none;
+    }
+    .title {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        margin-left: 20px;
+    }
+    .value{
+        display: flex;
+        i{
+            margin-right: 5px;
+        }
+    }
+}
+
+
+/* between mobile and labtop screens */
+@media only screen and (min-width: 769px) and (max-width:991px) {
+    h3{
+        margin-left: 30px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+    .Main {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 1px 1px 5px lightgray;
+        margin-bottom: 50px;
+    }
+    .right{
+        display: none;
     }
     .title {
         width: 80%;

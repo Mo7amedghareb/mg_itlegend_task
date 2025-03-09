@@ -3,7 +3,7 @@ export default function Coursematerials() {
     return (
         <>
             {/* course materials section */}
-            <h1>Course Materials</h1>
+            <h3>Course Materials</h3>
             <div className="Main">
                 <div className="left" >
                     <div className='title' >
@@ -37,7 +37,6 @@ export default function Coursematerials() {
                         </div>
                         <p>English</p>
                     </div>
-                    <hr></hr>
                 </div>
 
                 <div className="right">
@@ -72,7 +71,6 @@ export default function Coursematerials() {
                         </div>
                         <p>English</p>
                     </div>
-                    <hr></hr>
                 </div>
             </div>
         </>

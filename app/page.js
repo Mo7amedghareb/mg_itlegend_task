@@ -14,13 +14,16 @@ export default function Home() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [percentage, setpercentage] = useState(0);
 
   const handleVideoEnd = () => {
     // Move to the next video
     setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
 
     // Increase progress based on total videos
-    setProgress((prevProgress) => prevProgress + 100 / videos.length);
+
+    setProgress((prevProgress) => Math.min(prevProgress + 100 / videos.length, 100));
+    setpercentage((prevPercentage) => Math.min(prevPercentage + 100 / videos.length, 100));
   };
 
   const testomonialsRef = useRef(null);
@@ -28,10 +31,19 @@ export default function Home() {
     testomonialsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const CurriculmRef = useRef(null);
+  const scrollTocurriculm = () => {
+    CurriculmRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
-      <h4 className="routes">Home <i className="fa-solid fa-angle-right" /> Courses <i className="fa-solid fa-angle-right" /> Course Details</h4>
-      <h1 id="title">Starting SEO As Your Home</h1>
+      <div id="title">
+        <h4 className="routes">Home <i className="fa-solid fa-angle-right" /> Courses <i className="fa-solid fa-angle-right" /> Course Details</h4>
+        <h1 >Starting SEO As Your Home</h1>
+        <h1 id="secondh">Based Business</h1>
+      </div>
+
       <div className="container">
         <div className="firstsecond">
           <div className="firstsection">
@@ -47,14 +59,12 @@ export default function Home() {
               </div>
             </div>
             <div className="icons">
-              <Icons scrollToTestomonials={scrollToTestomonials} />
+              <Icons scrollToTestomonials={scrollToTestomonials} scrollTocurriculm={scrollTocurriculm} />
             </div>
-            <div className="coursematerials">
-
+            <div className="coursematerials" ref={CurriculmRef}>
               <Coursematerials />
             </div>
           </div>
-
           <div className="secondsection">
             <div className="rightsection">
               <div className="progressbar">
@@ -62,15 +72,13 @@ export default function Home() {
                 <div className="progress-container">
                   <div className="animate-progress" style={{ width: `${progress}%` }} />
                 </div>
+                <h6 style={{ left: `${progress * videos.length}px` }}>{Math.round(percentage)}%</h6>
               </div>
               <Rightsection />
             </div>
           </div>
 
         </div>
-
-
-
 
 
         <div className="thirdsection">

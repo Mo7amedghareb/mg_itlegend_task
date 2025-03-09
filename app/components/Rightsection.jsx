@@ -7,7 +7,7 @@ export default function Rightsection() {
             <div className="course-details">
                 <h3 id="week1-4">Week 1-4</h3>
                 <p className="paragraph">Advanced Story Telling techniques for writers Personas, Characters & plots</p>
-                <hr></hr>
+                <hr id="hrr"></hr>
                 <div className="title-icon">
                     <div style={{ display: 'flex' }}>
                         <PDFModal />
@@ -64,7 +64,7 @@ export default function Rightsection() {
             </div>
 
 
-            <div className="course-details">
+            <div className="course-details" id="secondrightdiv">
                 <h3 id="week1-4">Week 1-4</h3>
                 <p className="paragraph">Advanced Story Telling techniques for writers Personas, Characters & plots</p>
                 <hr></hr>

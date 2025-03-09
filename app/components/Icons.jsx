@@ -2,7 +2,7 @@ import "./icons.css";
 import Testomonials from "./Testomonials";
 import { useState, useEffect } from "react";
 
-export default function Icons({ scrollToTestomonials }) {
+export default function Icons({ scrollToTestomonials ,scrollTocurriculm } ) {
     const [isPopupOpen, setPopupOpen] = useState(false);
     const [questionText, setQuestionText] = useState("");
 
@@ -32,6 +32,10 @@ export default function Icons({ scrollToTestomonials }) {
         <>
             {/* icons sections */}
             <div className="main">
+                <div className="icons-div" onClick={scrollTocurriculm}>
+                    <i id="icon" className="fa-solid fa-book"/>
+                </div>
+
                 <div className="icons-div" onClick={scrollToTestomonials}>
                     <i id="icon" className="fa-solid fa-comments" />
                 </div>
@@ -49,8 +53,7 @@ export default function Icons({ scrollToTestomonials }) {
                     <div className="popup-content">
                         <button className="close-btn" onClick={closePopup}>✖</button>
                         <div>
-                            <h1>Ask Your Question :</h1>
-                            {/* ✅ حفظ النص تلقائيًا عند الكتابة */}
+                            <h1 id="ask">Ask Your Question :</h1>
                             <textarea
                                 className="poptxtarea"
                                 value={questionText}
