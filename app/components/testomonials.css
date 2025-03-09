@@ -68,7 +68,9 @@
         margin-left: 20px;
         object-fit: cover; 
     }
-    
+    .username{
+        margin-left: 0px;
+    }
     .data{
         margin-left: 20px;
     }

@@ -47,8 +47,8 @@ export default function Home() {
         <h4 style={{ marginBottom: "10px" }} className="routes">
           Home <i className="fa-solid fa-angle-right" /> Courses <i className="fa-solid fa-angle-right" /> Course Details
         </h4>
-        <h2>Starting SEO As Your Home</h2>
-        <h2 id="secondh">Based Business</h2>
+        <h2 style={{marginLeft:'20px'}}>Starting SEO As Your Home</h2>
+        <h2 style={{marginLeft:'20px'}} id="secondh">Based Business</h2>
       </div>
 
       <div className="container">
@@ -78,7 +78,7 @@ export default function Home() {
                       height: "100%",
                       background: "blue",
                       borderRadius: "5px",
-                      transition: "width 1s ease-in-out"
+                      transition: "width 3s ease-in-out"
                     }}
                   />
 
