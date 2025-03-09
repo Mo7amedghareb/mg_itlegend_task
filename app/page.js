@@ -13,8 +13,8 @@ export default function Home() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [percentage, setpercentage] = useState(0);
+  const [progress, setProgress] = useState(30);
+  const [percentage, setpercentage] = useState(30);
 
   const handleVideoEnd = () => {
     // Move to the next video
@@ -39,9 +39,9 @@ export default function Home() {
   return (
     <>
       <div id="title">
-        <h4 className="routes">Home <i className="fa-solid fa-angle-right" /> Courses <i className="fa-solid fa-angle-right" /> Course Details</h4>
-        <h1 >Starting SEO As Your Home</h1>
-        <h1 id="secondh">Based Business</h1>
+        <h4 style={{marginBottom:'10px'}} className="routes">Home <i className="fa-solid fa-angle-right" /> Courses <i className="fa-solid fa-angle-right" /> Course Details</h4>
+        <h2 >Starting SEO As Your Home</h2>
+        <h2 id="secondh">Based Business</h2>
       </div>
 
       <div className="container">
